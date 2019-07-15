@@ -31,7 +31,10 @@ namespace QuickBuy.Dominio.Entidades
             LimparMensagemValidacao();
 
             if (!ItensPedidos.Any())
-                MensagemValidacao.Add("E obrigatório ter almenos um item no pedido!");
+                AdicionarCritica("E obrigatório ter almenos um item no pedido!");
+
+            if (string.IsNullOrEmpty(CEP))
+                AdicionarCritica("CEP deve estar preenchido!");
         }
     }
 }
